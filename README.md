@@ -12,9 +12,8 @@
 - EasePense: Micro E-Market Application
 
 # B: Baseline (Resource / Knowledge):
-- OOP
-- Android Studio
-- Java / Kotlit
+- Visual Studio Code
+- React
 - Database (TBD)
 - Computer
 - STRONG INTERNET
@@ -31,6 +30,8 @@ Contents:
 - Searching
 - Items Container 
 - UX Friendly
+- Add to Cart
+- Total Expenses
 
 # D: Documentation (WIP):
 
@@ -42,10 +43,11 @@ Contents:
 
 ## **March**:
 ```
-- TBD
+- Learning NodeJS
+- Learning CSS
 ```
 
 ## **April**:
 ```
-- TBD
+- Learning React
 ```
