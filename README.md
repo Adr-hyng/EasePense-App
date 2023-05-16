@@ -13,7 +13,8 @@
 
 # B: Baseline (Resource / Knowledge):
 - Visual Studio Code
-- React
+- React and CSS (Front-End)
+- NodeJS and Express (Back-End)
 - Database (TBD)
 - Computer
 - STRONG INTERNET
