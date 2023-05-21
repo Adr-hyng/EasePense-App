@@ -1,6 +1,17 @@
 # EasePense-App
 ## This is my term requirement for the course, CpE-9: Software Design using the ABCD method. EasePense is a simple E-commerce app for a small store we have.
 
+## Home Page
+![image](https://github.com/Adr-hyng/EasePense-App/assets/95139246/d28d0ccf-b9d0-40c4-8077-6b88c8e6937b)
+
+
+<br>
+
+## Cart Page
+![image](https://github.com/Adr-hyng/EasePense-App/assets/95139246/ca418a59-0520-46cb-b880-557bbbbca048)
+
+
+
 # Category:
 
 - Utility Software ✅ 
