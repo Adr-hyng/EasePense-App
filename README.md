@@ -3,19 +3,17 @@
 
 # Category:
 
-- Games
-- Educational 
 - Utility Software ✅ 
 
 # A: Awareness
 
-- EasePense: Micro E-Market Application
+- EasePense: Micro-Grocery Inventory Application
 
 # B: Baseline (Resource / Knowledge):
 - Visual Studio Code
 - React and CSS (Front-End)
 - NodeJS and Express (Back-End)
-- Database (TBD)
+- Database (MySQL)
 - Computer
 - STRONG INTERNET
 
@@ -28,7 +26,7 @@ Contents:
 - User Interface Design
 - Gantt Charting
 ```
-- Searching
+- Real-Time Product Processing
 - Items Container 
 - UX Friendly
 - Add to Cart
@@ -51,4 +49,7 @@ Contents:
 ## **April**:
 ```
 - Learning React
+- Learning SQL
 ```
+
+XD
