@@ -1,7 +1,7 @@
 To-Do:
 
 - [X] Add Remove from Cart Functionality in Cart
-- [] Change Product Lists
+- [X] Change Product Lists
 - [] Change Category List
 - [] Create Searching Algorithm based on Keyword
 - [] Create Descriptions for Each Item (Stock, etc.)
@@ -10,11 +10,14 @@ To-Do:
 - [X] Make the Header Height Longer
 - [] Auto Create database when not existing.
 - [] Make website responsive for android
-- [] Integrate Embedded Systems with this project
+- [X] Integrate Embedded Systems with this project
 
 Bugs:
-* You cannot add more quantity or add to cart
+Algorithm:
+1. autoCreate Database when not existing.
+2. You cannot add more quantity or add to cart.
+3. Filter based on category.
+
+2. Details:
 * IF item.quantity in cart is equal or above to stock value, then disable the Feature Product item by disabling the add to cart button with grey color as indicator.
 * IF item.quantity in cart is equal or above to stock value, then disable the Cartitem's add button by displaying it in grey background, so you can only decrement the quantity, not increment. 
-
-IDK WAID xd

@@ -2,7 +2,8 @@ import React from "react"
 import "./style.css"
 
 const Cart = ({ CartItem, addToCart, decreaseQty, removeFromCart }) => {
-  const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.price, 0)
+  const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.price, 0);
+  
   const updateProductStocks = async () => {
     try {
       const response = await fetch("/api/updateProductStocks", {
@@ -15,6 +16,13 @@ const Cart = ({ CartItem, addToCart, decreaseQty, removeFromCart }) => {
 
       if (response.ok) {
         CartItem.forEach((item) => removeFromCart(item, true));
+        await fetch("/api/updateTotalPrice", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ totalPrice: totalPrice }),
+        });
       } else {
         console.error("Failed to clear cart and update database");
       }
@@ -28,9 +36,9 @@ const Cart = ({ CartItem, addToCart, decreaseQty, removeFromCart }) => {
         <div className='container d_flex'>
           <div className='cart-details'>
             {CartItem.length === 0 && <h1 className='no-items product'>No Items are add in Cart</h1>}
+            Php             
             {CartItem.map((item) => {
               const productQty = item.price * item.qty
-
               return (
                 <div className='cart-list product d_flex' key={item.id}>
                   <div className='img'>

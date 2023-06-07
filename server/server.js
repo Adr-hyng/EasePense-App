@@ -5,9 +5,36 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
+app.use(express.json());
+
+let totalPrice = 0;
+let showPrice = false;
+
+app.post("/api/send", (req, res) => {
+  const message = req.body.message;
+  console.log("Message:", message);
+  res.status(200).send("Message sent");
+});
+
+app.post("/api/updateTotalPrice", (req, res) => {
+  const newTotalPrice = req.body.totalPrice;
+  totalPrice = newTotalPrice;
+  showPrice = true;
+  res.json({ showPrice: showPrice, totalPrice: newTotalPrice });
+  setTimeout(() => {
+    showPrice = false;
+  }, 1000 * 15); // 10 seconds in milliseconds
+});
+
+app.get("/api/getTotalPrice", (req, res) => {
+  res.json({ showPrice: showPrice, totalPrice: totalPrice });
+});
+
+
+
 app.get("/api", (req, res) => {
     res.json({
-        "users": ["user1", "user2", "user3"]
+        "user": "Adrian is good"
     });
 });
 
@@ -27,7 +54,7 @@ app.get("/api/shop", (req, res) => {
   });
 });
 
-app.post("/api/updateProductStocks", (req, res) => {
+app.post("/api/updateProductStocks", (req, res) => { 
   const cartItems = req.body;
 
   cartItems.forEach((item) => {
