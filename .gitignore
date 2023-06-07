@@ -2,3 +2,4 @@
 /server/node_modules/
 /server/.env
 /server/ESP8266.md
+/node_modules/
