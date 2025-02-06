@@ -6,11 +6,11 @@ Follow these steps to install and run the app:
 
 ### Prerequisites
 - Node.js
-Download and install Node.js from nodejs.org.
+Download and install Node.js from [nodejs.org](https://nodejs.org/en/download/current).
 
 - MySQL
-Download and install MySQL from mysql.com.
-Make sure you have a running MySQL server and proper credentials set up in a .env file in the root of the project. Example:
+Download and install MySQL from [mysql.com](https://dev.mysql.com/downloads/installer/).
+Make sure you have a running MySQL server and proper credentials set up in a `.env` file in the root of the project. Example:
 ```
 DB_HOST=localhost
 DB_USER=root
