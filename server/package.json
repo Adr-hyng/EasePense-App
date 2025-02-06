@@ -15,7 +15,9 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "my-app": "file:..",
     "mysql": "^2.18.1",
+    "mysql2": "^3.12.0",
     "node-fetch": "^3.3.1"
   },
   "devDependencies": {

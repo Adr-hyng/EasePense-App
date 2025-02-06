@@ -3,21 +3,31 @@ To-Do:
 - [X] Add Remove from Cart Functionality in Cart
 - [X] Change Product Lists
 - [] Change Category List
-- [] Create Searching Algorithm based on Keyword
+- [] Create Text Filter based on Keyword on Search box
 - [] Create Descriptions for Each Item (Stock, etc.)
 - [X] Add Database (Cart Added, Stocks available)
 - [] Container of Products from Page 1 - 5
 - [X] Make the Header Height Longer
-- [] Auto Create database when not existing.
+- [X] Auto Create database when not existing.
 - [] Make website responsive for android
 - [X] Integrate Embedded Systems with this project
 
 Bugs:
 Algorithm:
-1. autoCreate Database when not existing.
-2. You cannot add more quantity or add to cart.
 3. Filter based on category.
 
 2. Details:
 * IF item.quantity in cart is equal or above to stock value, then disable the Feature Product item by disabling the add to cart button with grey color as indicator.
 * IF item.quantity in cart is equal or above to stock value, then disable the Cartitem's add button by displaying it in grey background, so you can only decrement the quantity, not increment. 
+
+
+Test Endpoints:
+// Create new product
+```
+curl -X POST http://localhost:5000/api/addFeaturedProduct   -H "Content-Type: application/json"   -d '{
+    "name": "New Featured Item",
+    "price": 50,
+    "path": "images/featuredProducts/shop-1.png",
+    "stock": 50
+  }'
+```

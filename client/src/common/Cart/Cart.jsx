@@ -48,8 +48,8 @@ const Cart = ({ CartItem, addToCart, decreaseQty, removeFromCart }) => {
                     <h3>{item.name}</h3>
                     <h4>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      ₱{item.price}.00 x {item.qty}
-                        <span>₱{productQty}.00</span>
+                      ₱{item.price} x {item.qty}
+                        <span>₱{productQty}</span>
                       </div>
                     </h4>
                   </div>

@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='container grid2'>
           <div className='box'>
             <h1>EasePense</h1>
-            <p>YConnect with ease, browse with joy, and transact effortlessly. Whether you're a shopper or a store owner, our user-friendly platform simplifies the process. </p>
+            <p>Connect with ease, browse with joy, and transact effortlessly. Whether you're a shopper or a store owner, our user-friendly platform simplifies the process. </p>
             
           </div>
 
@@ -35,9 +35,9 @@ const Footer = () => {
           <div className='box'>
             <h2>Contact Us</h2>
             <ul>
-              <li>Arteche Blvd, Catbalogan City, 6700 Samar</li>
-              <li>Email: adrian.abaigar@ssu.edu.ph</li>
-              <li>Phone: +63 969 258 5985</li>
+              <li>Catbalogan City, 6700 Samar</li>
+              <li>Email: support@easepense.com</li>
+              <li>Phone: +63 123 456 7890</li>
             </ul>
           </div>
         </div>

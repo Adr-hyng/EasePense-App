@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
+const path = require("path");
 const db = require('./db');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
-
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "client/build")));
+
 
 let totalPrice = 0;
 let showPrice = false;
@@ -40,7 +43,7 @@ app.get("/api", (req, res) => {
 
 app.get("/api/top", (req, res) => {
   const sql = 'SELECT * FROM topProducts';
-  db.query(sql, (err, results) => {
+  db.getConnection().query(sql, (err, results) => {
     if (err) throw err;
     res.json(results);
   });
@@ -48,10 +51,40 @@ app.get("/api/top", (req, res) => {
 
 app.get("/api/shop", (req, res) => {
   const sql = 'SELECT * FROM productItems';
-  db.query(sql, (err, results) => {
+  db.getConnection().query(sql, (err, results) => {
     if (err) throw err;
     res.json(results);
   });
+});
+
+// Add Featured Product endpoint
+app.post("/api/addFeaturedProduct", (req, res) => {
+  const { name, price, path, stock } = req.body;
+  
+  if (!name || !price || !path || !stock) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  const insertQuery = `
+    INSERT INTO productItems (name, price, path, stock)
+    VALUES (?, ?, ?, ?)
+  `;
+
+  db.getConnection().query(
+    insertQuery,
+    [name, price, path, stock || null],
+    (err, result) => {
+      if (err) {
+        console.error("Error adding featured product:", err);
+        return res.status(500).json({ error: "Database error" });
+      }
+      res.json({
+        success: true,
+        message: "Featured product added successfully",
+        productId: result.insertId
+      });
+    }
+  );
 });
 
 app.post("/api/updateProductStocks", (req, res) => { 
@@ -60,11 +93,11 @@ app.post("/api/updateProductStocks", (req, res) => {
   cartItems.forEach((item) => {
     const updateProductItemsQuery =
       "UPDATE productItems SET stock = stock - ?, purchased = purchased + ? WHERE id = ?";
-    db.query(updateProductItemsQuery, [item.qty, item.qty, item.id], (error) => {
+    db.getConnection().query(updateProductItemsQuery, [item.qty, item.qty, item.id], (error) => {
       if (error) throw error;
 
       const selectUpdatedItemQuery = "SELECT * FROM productItems WHERE id = ?";
-      db.query(selectUpdatedItemQuery, [item.id], (error, rows) => {
+      db.getConnection().query(selectUpdatedItemQuery, [item.id], (error, rows) => {
         if (error) throw error;
 
         const updatedItem = rows[0];
@@ -72,7 +105,7 @@ app.post("/api/updateProductStocks", (req, res) => {
         if (updatedItem.purchased > 10) {
           const insertTopProductsQuery = "INSERT IGNORE INTO topProducts (id, path, name, price, purchased) VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE path = VALUES(path), name = VALUES(name), price = VALUES(price), purchased = VALUES(purchased)";
 
-          db.query(
+          db.getConnection().query(
             insertTopProductsQuery,
             [
               updatedItem.id,
